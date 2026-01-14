@@ -1,6 +1,6 @@
 services:
   torrent-indexer:
-    image: torrent-indexer:latest
+    image: ghcr.io/renatoadorno/torrent-indexer:latest
     build: .
     container_name: torrent-indexer
     restart: unless-stopped
