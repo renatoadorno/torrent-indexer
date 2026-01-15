@@ -66,7 +66,7 @@ app.get('/indexers/comando', (c) => comandoIndexer(c, requester, redisCache, mag
 app.get('/indexers/vaca-torrent', (c) => vacaTorrentIndexer(c, requester, redisCache, magnetMetadataClient, searchIndexer));
 
 export default {
-  port: 3000,
+  port: 7006,
   fetch: app.fetch,
   idleTimeout: 255, // 255 seconds (max)
 };

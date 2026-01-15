@@ -40,7 +40,7 @@ COPY --from=builder --chown=appuser:appuser /usr/src/app/server .
 USER appuser
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 7006
 
 # Run the binary
 CMD ["./server"]

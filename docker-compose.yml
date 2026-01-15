@@ -5,7 +5,7 @@ services:
     container_name: torrent-indexer
     restart: unless-stopped
     ports:
-      - 7006:3000
+      - 7006:7006
     networks:
       - indexer
     environment:
