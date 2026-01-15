@@ -11,7 +11,7 @@ import { MagnetMetadataClient } from '../magnet/metadata-client';
 import { SearchIndexer } from '../search/meilisearch';
 import * as pp from './post-processors';
 
-const STARCK_FILMES_URL = getEnvOrDefault('INDEXER_STARCK_FILMES_URL', 'https://starckfilmes-v8.com/');
+const STARCK_FILMES_URL = getEnvOrDefault('INDEXER_STARCK_FILMES_URL', 'https://www.starckfilmes-v8.com/');
 const SEARCH_URL = '?s=';
 const PAGE_PATTERN = 'page/%s';
 
