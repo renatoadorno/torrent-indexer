@@ -31,10 +31,24 @@ export const starckFilmesIndexer = async (
     const imdb = c.req.query('imdb');
     
     let url = STARCK_FILMES_URL;
+    if (!url.endsWith('/')) {
+        url += '/';
+    }
+
     if (q) {
-        url = `${STARCK_FILMES_URL}${SEARCH_URL}${encodeURIComponent(q)}`;
+        url = `${url}${SEARCH_URL.replace(/^\?/, '')}${encodeURIComponent(q)}`; // Adjust if SEARCH_URL needs ? or not. Actually existing code was ?s=.
+        // Let's stick to the original logic but fix the slash.
+        // Original: url = `${STARCK_FILMES_URL}${SEARCH_URL}${encodeURIComponent(q)}`;
+        // If STARCK_FILMES_URL has slash, ?s= works.
+    } 
+    
+    // Let's rewrite safely
+    const baseUrl = STARCK_FILMES_URL.endsWith('/') ? STARCK_FILMES_URL : `${STARCK_FILMES_URL}/`;
+
+    if (q) {
+        url = `${baseUrl}${SEARCH_URL}${encodeURIComponent(q)}`;
     } else {
-        url = `${STARCK_FILMES_URL}page/${page}`;
+        url = `${baseUrl}page/${page}`;
     }
 
     console.log(`Processing indexer request: ${url}`);
